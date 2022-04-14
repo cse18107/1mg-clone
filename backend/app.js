@@ -9,10 +9,4 @@ app.use(express.json());
 connect();
 
 
-app.get('/',(req,res)=>{
-    res.status(201).json({
-        message:'Its working'
-    });
-});
-
 module.exports = app;
