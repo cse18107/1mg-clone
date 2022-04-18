@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
-const bcrypt = require('')
+const bcrypt = require('bcrypt');
 
 
 const InventorSchema = new mongoose.Schema({
@@ -23,7 +22,17 @@ const InventorSchema = new mongoose.Schema({
         type: String,
         required: true,
         select: false
+    },
+    role: {
+        type: String,
+        default: "SALES_EXECUTIVE"
     }
 });
 
-module.exports = InventorSchema;
+InventorSchema.pre('save', function(){
+    bcrypt.hash(this.password, 10);
+});
+
+const inventorModels = mongoose.model('inventorModels',userSchema);
+
+module.exports = inventorModels;
