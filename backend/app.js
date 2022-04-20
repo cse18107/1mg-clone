@@ -19,7 +19,7 @@ app.use('/api', orderRouter);
 connect();
 
 
-app.use('/api', medicineRoutes);
 
+app.use('/api', medicineRoutes);
 
 module.exports = app;
