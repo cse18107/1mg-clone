@@ -29,7 +29,7 @@ const InventorSchema = new mongoose.Schema({
     }
 });
 
-InventorSchema.pre('save', function(){
+InventorSchema.pre('save', async function(){
     bcrypt.hash(this.password, 10);
 });
 

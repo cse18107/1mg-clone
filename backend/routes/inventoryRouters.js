@@ -1,17 +1,18 @@
 const express = require('express');
+const {authorizeRoles} = require('../middleware/auth');
 const { getSingleInventory, createInventory, getAllInventoryDetails, cancelInventory, updateInventory } = require('../controllers/oderController');
 const inventoryRouter = express.Router();
 
 inventoryRouter
-    .route('/inventoryes')
-    .post(createInventory)
+    .route('salesExecutive/inventoryes')
+    .post(authorizeRoles("SALES_EXECUTIVE"), createInventory)
     .get(getAllInventoryDetails)
 
 inventoryRouter
-    .route('/inventory/:id')
+    .route('salesExecutive/inventory/:id')
     .get(getSingleInventory)
-    .delete(cancelInventory)
-    .post(updateInventory)
+    .delete(authorizeRoles("SALES_EXECUTIVE"),cancelInventory)
+    .post(authorizeRoles("SALES_EXECUTIVE"), updateInventory)
 
 
 module.exports = inventoryRouter;
