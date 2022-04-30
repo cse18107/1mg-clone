@@ -1,0 +1,16 @@
+.overlay_body{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.264);
+    z-index: 30;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.overlay_container{
+    width: 45%;
+    height: 55%;
+    background-color: white;
+    border-radius: 8px;
+}
