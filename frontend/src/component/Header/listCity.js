@@ -1,5 +1,5 @@
- city = [
-
+export const city = [
+    "TOP CITIES",
     "New Delhi",
     "Gurgaon",
     "Pune",
@@ -20,6 +20,7 @@
     "Patna",
     "Ludhiana",
     "Bhubaneshwar",
+    "ALL CITIES",
     "Abohar",
     "Adilabad",
     "Adoni",
