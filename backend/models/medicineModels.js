@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const medicineSchema = new mongoose.Schema({
     Name: {
         type: String,
-        require: true,
+        required: true,
         maxLength: 10,
         unique: true
     },
@@ -14,11 +14,11 @@ const medicineSchema = new mongoose.Schema({
     },
     Price: {
         type: Number,
-        require: true
+        required: true
     },
     Stock: {
         type: Number,
-        require: true
+        required: true
     },
     Discount: {
         type: Number,

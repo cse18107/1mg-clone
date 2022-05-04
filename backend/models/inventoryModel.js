@@ -12,6 +12,11 @@ const InventorSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    Mobile: {
+        type: String,
+        required: true.valueOf,
+        maxlength: 10
+    },
     password: {
         type: String,
         required: true,
