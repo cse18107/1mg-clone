@@ -1,14 +1,36 @@
-import React from "react";
+import React,{useState} from "react";
 import "./Header.css";
 import { Link, NavLink } from "react-router-dom";
 import CartLogo from '../../images/cart.png';
 import { Overlay } from "../Overlay/Overlay";
+import Address from '../../images/crosshair.png'
+import Location from '../../images/placeholder.png'
+
 
 
 const Header = () => {
+
+
+
+  const [overlay,setOverlay] = useState(false);
+  const [isLogin,setIsLogin] = useState(false);
+  const [isSignUp,setIsSigUp] = useState(false);
+  const [showDropDown,setShowDropDown] = useState(false);
+
+  const openLoginOverlay = () => {
+    setOverlay(true);
+    setIsLogin(true);
+  }
+
+  const openSignUpOverlay = () => {
+    setOverlay(true);
+    setIsSigUp(true);
+  }
+
   return (
     <>
-    <Overlay/>
+    {overlay && isLogin && <Overlay setOverlay={setOverlay} mode={true} setFalse={setIsLogin} />}
+    {overlay && isSignUp && <Overlay setOverlay={setOverlay} mode={false} setFalse={setIsSigUp}/>}
     <div className="header_body">
       <div className="header_container">
         <div className="header_content">
@@ -27,8 +49,8 @@ const Header = () => {
           <div className="header_right">
             <div className="header_right-links">
               <div className="header_right-links_auth">
-                <div className="header_right-links_auth__login">Login</div>
-                <div className="header_right-links_auth__signup">Sign Up</div>
+                <div className="header_right-links_auth__login" onClick={openLoginOverlay}>Login</div>
+                <div className="header_right-links_auth__signup" onClick={openSignUpOverlay}>Sign Up</div>
               </div>
               <div className="header_right-links_offers">
                 <NavLink className='right-link' to="/offers">Offers</NavLink>
@@ -39,6 +61,23 @@ const Header = () => {
             </div>
           </div>
         </div>
+      </div>
+    </div>
+    <div className="header_search">
+      <div className="header_search_container">
+        <div className="header_search_container-left">
+          {/* <div className="header_search_container-left_input"> */}
+            {/* <div className="header_search_container-left_input-location"> */}
+              <div className="header_search_container-left_input-location_container">
+                <div className="input-location_container-location-icon" style={{paddingTop:"5px"}}><img src={Location} alt="img"/></div>
+                <input className="input-location_container-location-input" placeholder="Enter Your City" onClick={()=>{setShowDropDown(!showDropDown)}}></input>
+                <div className="input-location_container-location-address-icon" style={{paddingTop:"5px"}}><img src={Address} alt="img"/></div>
+                {showDropDown && <div className="input-location_container-location-address-dropdown"></div>}
+              </div>
+            {/* </div> */}
+          {/* </div> */}
+        </div>
+        <div className="header_search_container-right"></div>
       </div>
     </div>
     </>
