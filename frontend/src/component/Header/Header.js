@@ -139,9 +139,9 @@ const Header = () => {
               ></input>
               <div
                 className="input-location_container-location-address-icon"
-                style={{ paddingTop: "5px" }}
+                style={{ paddingTop: "5px"}}
               >
-                <img src={Address} alt="img" />
+                <img src={Address} alt="img"   style={{cursor:"pointer"}}/>
               </div>
               {showDropDown && (
                 <div className="input-location_container-location-address-dropdown">
@@ -160,11 +160,22 @@ const Header = () => {
               )}
             </div>
             <div className="header_search_container-left_input-item_container">
-              <input></input>
-              <img src={Search} alt=""/>
+              <input                 
+                className="header_search_container-left_input-item_container-input"
+                placeholder="Search for Medicines and Health Products">
+
+                </input>
+              <img src={Search} alt="" style={{cursor:"pointer"}}/>
             </div>
           </div>
-          <div className="header_search_container-right"></div>
+          <div className="header_search_container-right">
+            <button className="header_search_container-right__button">Upload</button>
+          </div>
+        </div>
+      </div>
+      <div className="header_dropdown_body">
+        <div className="header_dropdown_body_container">
+          
         </div>
       </div>
     </>
